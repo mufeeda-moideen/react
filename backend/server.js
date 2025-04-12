@@ -16,13 +16,7 @@ app.use(express.json());
 const registrationRoutes = require("./router/registrationRouter");
 app.use("/api", registrationRoutes);
 
-// MongoDB Connect
-mongoose.connect(process.env.MONGODB_URI)
-.then(() => {
-  console.log("✅ Connected to MongoDB");
-  app.listen(process.env.PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${process.env.PORT}`);
+
+app.listen(8080, () => {
+    console.log(`🚀 Server running on http://localhost:8080`);
   });
-}).catch(err => {
-  console.error("MongoDB connection error:", err);
-});

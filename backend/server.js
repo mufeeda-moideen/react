@@ -16,7 +16,12 @@ app.use(express.json());
 const registrationRoutes = require("./router/registrationRouter");
 app.use("/api", registrationRoutes);
 
+// MongoDB Connect
+const port = 8080;
+app.listen(port, () => {
+  console.log(`🚀 Server is running on port ${port}`);
+});
 
-app.listen(8080, () => {
-    console.log(`🚀 Server running on http://localhost:8080`);
-  });
+//import Connection
+const connection = require("./Connection/connection");
+connection();

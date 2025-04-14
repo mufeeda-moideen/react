@@ -31,11 +31,11 @@ const ExamRegistrationForm = () => {
       formData.admissionNumber === "" ||
       formData.examRegisterNumber === ""
     ) {
-      alert("All Fields are Required!");
+      alert("All Fields are required!");
     } else {
         const response = await axios.post("http://localhost:8080/api/data", formData);
-        alert("Form Submitted successfully!");
-        console.log("Server response:", response.data);
+        alert(response.data.message);
+        console.log("Server response:", response.data.data);
       }
   };
 
